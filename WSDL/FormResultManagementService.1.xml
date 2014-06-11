@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.4-b01-. -->
+<xs:schema xmlns:tns="http://v81.api.keysurvey.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://v81.api.keysurvey.com">
+
+<xs:element name="WSIllegalArgumentException" nillable="true" type="tns:WSFault"/>
+
+<xs:element name="WSInternalServerException" nillable="true" type="tns:WSFault"/>
+
+<xs:element name="WSObjectNotFoundException" nillable="true" type="tns:WSFault"/>
+
+<xs:element name="WSSecurityException" nillable="true" type="tns:WSFault"/>
+
+<xs:complexType name="WSObject">
+<xs:sequence>
+<xs:element name="versionId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="WSFault">
+<xs:sequence>
+<xs:element name="error" type="xs:int"/>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+<xs:element name="service" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

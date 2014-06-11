@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.4-b01-. -->
+<xs:schema xmlns:tns="http://result.form.v81.api.keysurvey.com" xmlns:ns1="http://v81.api.keysurvey.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://result.form.v81.api.keysurvey.com">
+
+<xs:import namespace="http://v81.api.keysurvey.com" schemaLocation="http://www.keysurvey.com:80/Member/api/v81/form/result/FormResultManagementService?xsd=1"/>
+
+<xs:element name="createRespondents" type="tns:createRespondents"/>
+
+<xs:element name="createRespondentsResponse" type="tns:createRespondentsResponse"/>
+
+<xs:element name="deleteRespondent" type="tns:deleteRespondent"/>
+
+<xs:element name="deleteRespondentResponse" type="tns:deleteRespondentResponse"/>
+
+<xs:element name="deleteRespondents" type="tns:deleteRespondents"/>
+
+<xs:element name="deleteRespondentsByActivityDate" type="tns:deleteRespondentsByActivityDate"/>
+
+<xs:element name="deleteRespondentsByActivityDateResponse" type="tns:deleteRespondentsByActivityDateResponse"/>
+
+<xs:element name="deleteRespondentsByEmail" type="tns:deleteRespondentsByEmail"/>
+
+<xs:element name="deleteRespondentsByEmailResponse" type="tns:deleteRespondentsByEmailResponse"/>
+
+<xs:element name="deleteRespondentsByLaunchDate" type="tns:deleteRespondentsByLaunchDate"/>
+
+<xs:element name="deleteRespondentsByLaunchDateResponse" type="tns:deleteRespondentsByLaunchDateResponse"/>
+
+<xs:element name="deleteRespondentsResponse" type="tns:deleteRespondentsResponse"/>
+
+<xs:element name="getFormStatistics" type="tns:getFormStatistics"/>
+
+<xs:element name="getFormStatisticsResponse" type="tns:getFormStatisticsResponse"/>
+
+<xs:element name="getRespondent" type="tns:getRespondent"/>
+
+<xs:element name="getRespondentResponse" type="tns:getRespondentResponse"/>
+
+<xs:element name="getRespondents" type="tns:getRespondents"/>
+
+<xs:element name="getRespondentsByCriteria" type="tns:getRespondentsByCriteria"/>
+
+<xs:element name="getRespondentsByCriteriaResponse" type="tns:getRespondentsByCriteriaResponse"/>
+
+<xs:element name="getRespondentsByCriteriaWithIncompletes" type="tns:getRespondentsByCriteriaWithIncompletes"/>
+
+<xs:element name="getRespondentsByCriteriaWithIncompletesResponse" type="tns:getRespondentsByCriteriaWithIncompletesResponse"/>
+
+<xs:element name="getRespondentsComplete" type="tns:getRespondentsComplete"/>
+
+<xs:element name="getRespondentsCompleteResponse" type="tns:getRespondentsCompleteResponse"/>
+
+<xs:element name="getRespondentsPartial" type="tns:getRespondentsPartial"/>
+
+<xs:element name="getRespondentsPartialResponse" type="tns:getRespondentsPartialResponse"/>
+
+<xs:element name="getRespondentsResponse" type="tns:getRespondentsResponse"/>
+
+<xs:element name="getResponse" type="tns:getResponse"/>
+
+<xs:element name="getResponseResponse" type="tns:getResponseResponse"/>
+
+<xs:element name="getResponses" type="tns:getResponses"/>
+
+<xs:element name="getResponsesResponse" type="tns:getResponsesResponse"/>
+
+<xs:element name="saveResponses" type="tns:saveResponses"/>
+
+<xs:element name="saveResponsesResponse" type="tns:saveResponsesResponse"/>
+
+<xs:element name="updateRespondents" type="tns:updateRespondents"/>
+
+<xs:element name="updateRespondentsResponse" type="tns:updateRespondentsResponse"/>
+
+<xs:element name="wsAnswerMatrixOptionResponse" type="tns:WSAnswerMatrixOptionResponse"/>
+
+<xs:element name="wsAnswerMatrixResponse" type="tns:WSAnswerMatrixResponse"/>
+
+<xs:element name="wsAnswerMatrixTextResponse" type="tns:WSAnswerMatrixTextResponse"/>
+
+<xs:element name="wsAnswerPickResponse" type="tns:WSAnswerPickResponse"/>
+
+<xs:element name="wsAnswerResponse" type="tns:WSAnswerResponse"/>
+
+<xs:element name="wsAnswerTextResponse" type="tns:WSAnswerTextResponse"/>
+
+<xs:element name="wsQuestionResponse" type="tns:WSQuestionResponse"/>
+
+<xs:element name="wsRespondent" type="tns:WSRespondent"/>
+
+<xs:element name="wsRespondentStatus" type="tns:WSRespondentStatus"/>
+
+<xs:complexType name="updateRespondents">
+<xs:sequence>
+<xs:element name="formId" type="xs:long"/>
+<xs:element name="respondents" type="tns:WSRespondent" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="WSRespondent">
+<xs:complexContent>
+<xs:extension base="ns1:WSObject">
+<xs:sequence>
+<xs:element name="anonym" type="xs:boolean"/>
+<xs:element name="code" type="xs:string" minOccurs="0"/>
+<xs:element name="deleted" type="xs:boolean"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="formId" type="xs:long"/>
+<xs:element name="ipAddress" type="xs:string" minOccurs="0"/>
+<xs:element name="launchDate" type="xs:dateTime"/>
+<xs:element name="reportLink" type="xs:string" minOccurs="0"/>
+<xs:element name="respondentId" type="xs:long"/>
+<xs:element name="resubmit" type="xs:boolean"/>
+<xs:element name="score" type="xs:double"/>
+<xs:element name="status" type="tns:WSRespondentStatus" minOccurs="0"/>
+<xs:element name="submitDate" type="xs:dateTime"/>
+<xs:element name="submitStartDate" type="xs:dateTime"/>
+<xs:element name="test" type="xs:boolean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="updateRespondentsResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="saveResponses">
+<xs:sequence>
+<xs:element name="formId" type="xs:long"/>
+<xs:element name="responses" type="tns:WSQuestionResponse" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="WSQuestionResponse">
+<xs:complexContent>
+<xs:extension base="ns1:WSObject">
+<xs:sequence>
+<xs:element name="answerResponses" type="tns:WSAnswerResponse" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="questionId" type="xs:long"/>
+<xs:element name="respondentId" type="xs:long"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSAnswerResponse">
+<xs:complexContent>
+<xs:extension base="ns1:WSObject">
+<xs:sequence>
+<xs:element name="answerId" type="xs:long"/>
+<xs:element name="respondentId" type="xs:long"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSAnswerTextResponse">
+<xs:complexContent>
+<xs:extension base="tns:WSAnswerResponse">
+<xs:sequence>
+<xs:element name="text" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSAnswerPickResponse">
+<xs:complexContent>
+<xs:extension base="tns:WSAnswerResponse">
+<xs:sequence>
+<xs:element name="value" type="xs:long"/>
+<xs:element name="weight" type="xs:double"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSAnswerMatrixResponse">
+<xs:complexContent>
+<xs:extension base="tns:WSAnswerResponse">
+<xs:sequence>
+<xs:element name="patternColumnIndex" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSAnswerMatrixOptionResponse">
+<xs:complexContent>
+<xs:extension base="tns:WSAnswerMatrixResponse">
+<xs:sequence>
+<xs:element name="responseIndex" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSAnswerMatrixTextResponse">
+<xs:complexContent>
+<xs:extension base="tns:WSAnswerMatrixResponse">
+<xs:sequence>
+<xs:element name="response" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="saveResponsesResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getRespondentsByCriteriaWithIncompletes">
+<xs:sequence>
+<xs:element name="surveyId" type="xs:long"/>
+<xs:element name="criteria" type="tns:WSCriteriaNode" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="WSCriteriaNode" abstract="true">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="WSCriteriaLogic">
+<xs:complexContent>
+<xs:extension base="tns:WSCriteriaNode">
+<xs:sequence>
+<xs:element name="subNodes" type="tns:WSCriteriaNode" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="type" type="tns:type" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSCriteriaCondition">
+<xs:complexContent>
+<xs:extension base="tns:WSCriteriaNode">
+<xs:sequence>
+<xs:element name="tag" type="xs:string" minOccurs="0"/>
+<xs:element name="value" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSCriteriaDate">
+<xs:complexContent>
+<xs:extension base="tns:WSCriteriaNode">
+<xs:sequence>
+<xs:element name="endDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="startDate" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="getRespondentsByCriteriaWithIncompletesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:WSRespondent" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteRespondentsByLaunchDate">
+<xs:sequence>
+<xs:element name="formId" type="xs:long"/>
+<xs:element name="respondentStatus" type="tns:WSRespondentStatus" minOccurs="0"/>
+<xs:element name="startDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="endDate" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteRespondentsByLaunchDateResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="deleteRespondentsByActivityDate">
+<xs:sequence>
+<xs:element name="formId" type="xs:long"/>
+<xs:element name="respondentStatus" type="tns:WSRespondentStatus" minOccurs="0"/>
+<xs:element name="startDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="endDate" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteRespondentsByActivityDateResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getRespondentsByCriteria">
+<xs:sequence>
+<xs:element name="surveyId" type="xs:long"/>
+<xs:element name="criteria" type="tns:WSCriteriaNode" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getRespondentsByCriteriaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:WSRespondent" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createRespondents">
+<xs:sequence>
+<xs:element name="formId" type="xs:long"/>
+<xs:element name="respondents" type="tns:WSRespondent" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createRespondentsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:WSRespondent" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getResponses">
+<xs:sequence>
+<xs:element name="respondentId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getResponsesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:WSQuestionResponse" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getRespondents">
+<xs:sequence>
+<xs:element name="formId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getRespondentsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:WSRespondent" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getRespondent">
+<xs:sequence>
+<xs:element name="respondentId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getRespondentResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:WSRespondent" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteRespondents">
+<xs:sequence>
+<xs:element name="arg0" type="xs:long" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteRespondentsResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getRespondentsPartial">
+<xs:sequence>
+<xs:element name="formId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getRespondentsPartialResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:WSRespondent" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteRespondentsByEmail">
+<xs:sequence>
+<xs:element name="formId" type="xs:long"/>
+<xs:element name="respondentStatus" type="tns:WSRespondentStatus" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteRespondentsByEmailResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getRespondentsComplete">
+<xs:sequence>
+<xs:element name="formId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getRespondentsCompleteResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:WSRespondent" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getFormStatistics">
+<xs:sequence>
+<xs:element name="formId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getFormStatisticsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:WSFormStatistics" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="WSFormStatistics">
+<xs:complexContent>
+<xs:extension base="ns1:WSObject">
+<xs:sequence>
+<xs:element name="abandonedMail" type="xs:long"/>
+<xs:element name="completeCount" type="xs:long"/>
+<xs:element name="completeMail" type="xs:long"/>
+<xs:element name="formId" type="xs:long"/>
+<xs:element name="incompleteCount" type="xs:long"/>
+<xs:element name="incompleteMail" type="xs:long"/>
+<xs:element name="respondentCount" type="xs:long"/>
+<xs:element name="viewCount" type="xs:long"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="getResponse">
+<xs:sequence>
+<xs:element name="respondentId" type="xs:long"/>
+<xs:element name="questionId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getResponseResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:WSQuestionResponse" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteRespondent">
+<xs:sequence>
+<xs:element name="arg0" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteRespondentResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:simpleType name="WSRespondentStatus">
+<xs:restriction base="xs:string">
+<xs:enumeration value="INCOMPLETE"/>
+<xs:enumeration value="COMPLETE"/>
+<xs:enumeration value="COMPLETE_MAIL"/>
+<xs:enumeration value="ABANDONE_MAIL"/>
+<xs:enumeration value="NOT_STARTED"/>
+<xs:enumeration value="ALL"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="type">
+<xs:restriction base="xs:string">
+<xs:enumeration value="AND"/>
+<xs:enumeration value="OR"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

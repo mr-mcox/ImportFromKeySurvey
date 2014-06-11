@@ -1,0 +1,1023 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.4-b01-. -->
+<xs:schema xmlns:tns="http://design.form.v81.api.keysurvey.com" xmlns:ns2="http://user.v81.api.keysurvey.com" xmlns:ns1="http://v81.api.keysurvey.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://design.form.v81.api.keysurvey.com">
+
+<xs:import namespace="http://v81.api.keysurvey.com" schemaLocation="http://www.keysurvey.com:80/Member/api/v81/form/design/FormDesignManagementService?xsd=1"/>
+
+<xs:import namespace="http://user.v81.api.keysurvey.com" schemaLocation="http://www.keysurvey.com:80/Member/api/v81/form/design/FormDesignManagementService?xsd=2"/>
+
+<xs:element name="addAnswer" type="tns:addAnswer"/>
+
+<xs:element name="addAnswerResponse" type="tns:addAnswerResponse"/>
+
+<xs:element name="addQuestion" type="tns:addQuestion"/>
+
+<xs:element name="addQuestionResponse" type="tns:addQuestionResponse"/>
+
+<xs:element name="createCompleteForm" type="tns:createCompleteForm"/>
+
+<xs:element name="createCompleteFormResponse" type="tns:createCompleteFormResponse"/>
+
+<xs:element name="createCompleteQuestion" type="tns:createCompleteQuestion"/>
+
+<xs:element name="createCompleteQuestionResponse" type="tns:createCompleteQuestionResponse"/>
+
+<xs:element name="createForm" type="tns:createForm"/>
+
+<xs:element name="createFormResponse" type="tns:createFormResponse"/>
+
+<xs:element name="deleteAnswer" type="tns:deleteAnswer"/>
+
+<xs:element name="deleteAnswerResponse" type="tns:deleteAnswerResponse"/>
+
+<xs:element name="deleteForm" type="tns:deleteForm"/>
+
+<xs:element name="deleteFormResponse" type="tns:deleteFormResponse"/>
+
+<xs:element name="deleteQuestion" type="tns:deleteQuestion"/>
+
+<xs:element name="deleteQuestionResponse" type="tns:deleteQuestionResponse"/>
+
+<xs:element name="getAnswer" type="tns:getAnswer"/>
+
+<xs:element name="getAnswerByPosition" type="tns:getAnswerByPosition"/>
+
+<xs:element name="getAnswerByPositionResponse" type="tns:getAnswerByPositionResponse"/>
+
+<xs:element name="getAnswerPosition" type="tns:getAnswerPosition"/>
+
+<xs:element name="getAnswerPositionResponse" type="tns:getAnswerPositionResponse"/>
+
+<xs:element name="getAnswerResponse" type="tns:getAnswerResponse"/>
+
+<xs:element name="getAnswers" type="tns:getAnswers"/>
+
+<xs:element name="getAnswersResponse" type="tns:getAnswersResponse"/>
+
+<xs:element name="getForm" type="tns:getForm"/>
+
+<xs:element name="getFormDesign" type="tns:getFormDesign"/>
+
+<xs:element name="getFormDesignResponse" type="tns:getFormDesignResponse"/>
+
+<xs:element name="getFormLogic" type="tns:getFormLogic"/>
+
+<xs:element name="getFormLogicResponse" type="tns:getFormLogicResponse"/>
+
+<xs:element name="getFormNotes" type="tns:getFormNotes"/>
+
+<xs:element name="getFormNotesResponse" type="tns:getFormNotesResponse"/>
+
+<xs:element name="getFormPermissions" type="tns:getFormPermissions"/>
+
+<xs:element name="getFormPermissionsResponse" type="tns:getFormPermissionsResponse"/>
+
+<xs:element name="getFormResponse" type="tns:getFormResponse"/>
+
+<xs:element name="getFormTree" type="tns:getFormTree"/>
+
+<xs:element name="getFormTreeResponse" type="tns:getFormTreeResponse"/>
+
+<xs:element name="getForms" type="tns:getForms"/>
+
+<xs:element name="getFormsResponse" type="tns:getFormsResponse"/>
+
+<xs:element name="getQuestion" type="tns:getQuestion"/>
+
+<xs:element name="getQuestionByPosition" type="tns:getQuestionByPosition"/>
+
+<xs:element name="getQuestionByPositionResponse" type="tns:getQuestionByPositionResponse"/>
+
+<xs:element name="getQuestionLogic" type="tns:getQuestionLogic"/>
+
+<xs:element name="getQuestionLogicResponse" type="tns:getQuestionLogicResponse"/>
+
+<xs:element name="getQuestionPosition" type="tns:getQuestionPosition"/>
+
+<xs:element name="getQuestionPositionResponse" type="tns:getQuestionPositionResponse"/>
+
+<xs:element name="getQuestionResponse" type="tns:getQuestionResponse"/>
+
+<xs:element name="getQuestionSettings" type="tns:getQuestionSettings"/>
+
+<xs:element name="getQuestionSettingsResponse" type="tns:getQuestionSettingsResponse"/>
+
+<xs:element name="getQuestions" type="tns:getQuestions"/>
+
+<xs:element name="getQuestionsResponse" type="tns:getQuestionsResponse"/>
+
+<xs:element name="getSubmissionPolicy" type="tns:getSubmissionPolicy"/>
+
+<xs:element name="getSubmissionPolicyResponse" type="tns:getSubmissionPolicyResponse"/>
+
+<xs:element name="moveAnswer" type="tns:moveAnswer"/>
+
+<xs:element name="moveAnswerResponse" type="tns:moveAnswerResponse"/>
+
+<xs:element name="moveQuestion" type="tns:moveQuestion"/>
+
+<xs:element name="moveQuestionResponse" type="tns:moveQuestionResponse"/>
+
+<xs:element name="setFormDesign" type="tns:setFormDesign"/>
+
+<xs:element name="setFormDesignResponse" type="tns:setFormDesignResponse"/>
+
+<xs:element name="setFormLogic" type="tns:setFormLogic"/>
+
+<xs:element name="setFormLogicResponse" type="tns:setFormLogicResponse"/>
+
+<xs:element name="setFormNotes" type="tns:setFormNotes"/>
+
+<xs:element name="setFormNotesResponse" type="tns:setFormNotesResponse"/>
+
+<xs:element name="setQuestionLogic" type="tns:setQuestionLogic"/>
+
+<xs:element name="setQuestionLogicResponse" type="tns:setQuestionLogicResponse"/>
+
+<xs:element name="setQuestionSettings" type="tns:setQuestionSettings"/>
+
+<xs:element name="setQuestionSettingsResponse" type="tns:setQuestionSettingsResponse"/>
+
+<xs:element name="setSubmissionPolicy" type="tns:setSubmissionPolicy"/>
+
+<xs:element name="setSubmissionPolicyResponse" type="tns:setSubmissionPolicyResponse"/>
+
+<xs:element name="updateAnswer" type="tns:updateAnswer"/>
+
+<xs:element name="updateAnswerResponse" type="tns:updateAnswerResponse"/>
+
+<xs:element name="updateForm" type="tns:updateForm"/>
+
+<xs:element name="updateFormResponse" type="tns:updateFormResponse"/>
+
+<xs:element name="updateQuestion" type="tns:updateQuestion"/>
+
+<xs:element name="updateQuestionResponse" type="tns:updateQuestionResponse"/>
+
+<xs:element name="wsAnswer" type="tns:WSAnswer"/>
+
+<xs:element name="wsAnswerRequiredType" type="tns:WSAnswerRequiredType"/>
+
+<xs:element name="wsAnswerSortType" type="tns:WSAnswerSortType"/>
+
+<xs:element name="wsCheckAllThatApplyQuestion" type="tns:WSCheckAllThatApplyQuestion"/>
+
+<xs:element name="wsDropdownQuestion" type="tns:WSDropdownQuestion"/>
+
+<xs:element name="wsForm" type="tns:WSForm"/>
+
+<xs:element name="wsFormLogic" type="tns:WSFormLogic"/>
+
+<xs:element name="wsFormatAnswer" type="tns:WSFormatAnswer"/>
+
+<xs:element name="wsListBoxQuestion" type="tns:WSListBoxQuestion"/>
+
+<xs:element name="wsMatrixQuestion" type="tns:WSMatrixQuestion"/>
+
+<xs:element name="wsMultiLineQuestion" type="tns:WSMultiLineQuestion"/>
+
+<xs:element name="wsNumericAllocationQuestion" type="tns:WSNumericAllocationQuestion"/>
+
+<xs:element name="wsPickOneOrOtherQuestion" type="tns:WSPickOneOrOtherQuestion"/>
+
+<xs:element name="wsPickOneWithCommentQuestion" type="tns:WSPickOneWithCommentQuestion"/>
+
+<xs:element name="wsQuestion" type="tns:WSQuestion"/>
+
+<xs:element name="wsRankGridQuestion" type="tns:WSRankGridQuestion"/>
+
+<xs:element name="wsSectionHeaderQuestion" type="tns:WSSectionHeaderQuestion"/>
+
+<xs:element name="wsSingleLineQuestion" type="tns:WSSingleLineQuestion"/>
+
+<xs:complexType name="getFormNotes">
+<xs:sequence>
+<xs:element name="formId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getFormNotesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:WSFormNotes" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="WSFormNotes">
+<xs:complexContent>
+<xs:extension base="ns1:WSObject">
+<xs:sequence>
+<xs:element name="formId" type="xs:long"/>
+<xs:element name="notes" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="getAnswerByPosition">
+<xs:sequence>
+<xs:element name="questionId" type="xs:long"/>
+<xs:element name="position" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAnswerByPositionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:WSAnswer" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="WSAnswer">
+<xs:complexContent>
+<xs:extension base="ns1:WSObject">
+<xs:sequence>
+<xs:element name="answerId" type="xs:long"/>
+<xs:element name="mandatory" type="xs:boolean"/>
+<xs:element name="questionId" type="xs:long"/>
+<xs:element name="title" type="xs:string" minOccurs="0"/>
+<xs:element name="weight" type="xs:double"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSFormatAnswer">
+<xs:complexContent>
+<xs:extension base="tns:WSAnswer">
+<xs:sequence>
+<xs:element name="patternId" type="xs:long"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="getForm">
+<xs:sequence>
+<xs:element name="formId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getFormResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:WSForm" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="WSForm">
+<xs:complexContent>
+<xs:extension base="ns1:WSObject">
+<xs:sequence>
+<xs:element name="accountId" type="xs:long"/>
+<xs:element name="creationDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="description" type="xs:string" minOccurs="0"/>
+<xs:element name="endDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="id" type="xs:long"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="startDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="title" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="getQuestions">
+<xs:sequence>
+<xs:element name="formId" type="xs:long"/>
+<xs:element name="withAnswer" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getQuestionsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:WSQuestion" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="WSQuestion" abstract="true">
+<xs:complexContent>
+<xs:extension base="ns1:WSObject">
+<xs:sequence>
+<xs:element name="analysisCode" type="xs:string" minOccurs="0"/>
+<xs:element name="answerRequiredCondition" type="xs:string" minOccurs="0"/>
+<xs:element name="answerRequiredCount" type="xs:int"/>
+<xs:element name="answerRequiredType" type="tns:WSAnswerRequiredType" minOccurs="0"/>
+<xs:element name="answerSortType" type="tns:WSAnswerSortType" minOccurs="0"/>
+<xs:element name="formId" type="xs:long"/>
+<xs:element name="questionId" type="xs:long"/>
+<xs:element name="text" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+<xs:attribute name="MUST_ANSWER_ALL_ROWS" type="xs:int" use="required"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSBaseQuestion" abstract="true">
+<xs:complexContent>
+<xs:extension base="tns:WSQuestion">
+<xs:sequence>
+<xs:element name="answers" type="tns:WSAnswer" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSListBoxQuestion">
+<xs:complexContent>
+<xs:extension base="tns:WSBaseQuestion">
+<xs:sequence>
+<xs:element name="restrict" type="tns:WSAnswerRestriction" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSAnswerRestriction">
+<xs:sequence>
+<xs:element name="answerRestrictionType" type="tns:WSAnswerRestrictionType"/>
+<xs:element name="maxNumber" type="xs:int"/>
+<xs:element name="minNumber" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="WSNumericAllocationQuestion">
+<xs:complexContent>
+<xs:extension base="tns:WSBaseQuestion">
+<xs:sequence>
+<xs:element name="patternId" type="xs:long"/>
+<xs:element name="total" type="tns:WSAnswer" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSRankGridQuestion">
+<xs:complexContent>
+<xs:extension base="tns:WSBaseQuestion">
+<xs:sequence>
+<xs:element name="patternId" type="xs:long"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSPickOneOrOtherQuestion">
+<xs:complexContent>
+<xs:extension base="tns:WSBaseQuestion">
+<xs:sequence>
+<xs:element name="other" type="tns:WSAnswer" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSPickOneWithCommentQuestion">
+<xs:complexContent>
+<xs:extension base="tns:WSBaseQuestion">
+<xs:sequence>
+<xs:element name="comment" type="tns:WSAnswer" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSCheckAllThatApplyQuestion">
+<xs:complexContent>
+<xs:extension base="tns:WSBaseQuestion">
+<xs:sequence>
+<xs:element name="other" type="tns:WSAnswer" minOccurs="0"/>
+<xs:element name="restrict" type="tns:WSAnswerRestriction" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSDropdownQuestion">
+<xs:complexContent>
+<xs:extension base="tns:WSBaseQuestion">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSMatrixQuestion">
+<xs:complexContent>
+<xs:extension base="tns:WSBaseQuestion">
+<xs:sequence>
+<xs:element name="patternId" type="xs:long"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSSingleLineQuestion">
+<xs:complexContent>
+<xs:extension base="tns:WSQuestion">
+<xs:sequence>
+<xs:element name="answers" type="tns:WSFormatAnswer" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSSectionHeaderQuestion">
+<xs:complexContent>
+<xs:extension base="tns:WSQuestion">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSMultiLineQuestion">
+<xs:complexContent>
+<xs:extension base="tns:WSBaseQuestion">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="getQuestionLogic">
+<xs:sequence>
+<xs:element name="questionId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getQuestionLogicResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:WSQuestionLogic" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="WSQuestionLogic">
+<xs:complexContent>
+<xs:extension base="ns1:WSObject">
+<xs:sequence>
+<xs:element name="advancedLogics" type="tns:WSAdvancedLogic" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="fuzzyJumpLogics" type="tns:WSFuzzyJumpLogic" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="fuzzyLogicList" type="tns:WSFuzzyJumpLogic" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="goToLogic" type="tns:WSGoToLogic" minOccurs="0"/>
+<xs:element name="questionId" type="xs:long"/>
+<xs:element name="showHideLogics" type="tns:WSShowHideLogic" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="skipLogics" type="tns:WSSkipLogic" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSAdvancedLogic">
+<xs:complexContent>
+<xs:extension base="tns:WSLogic">
+<xs:sequence>
+<xs:element name="conditionalExpression" type="xs:string" minOccurs="0"/>
+<xs:element name="orderId" type="xs:long"/>
+<xs:element name="questionId" type="xs:long"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSLogic" abstract="true">
+<xs:complexContent>
+<xs:extension base="ns1:WSObject">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSGoToLogic">
+<xs:complexContent>
+<xs:extension base="tns:WSLogic">
+<xs:sequence>
+<xs:element name="qustionId" type="xs:long"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSSkipLogic">
+<xs:complexContent>
+<xs:extension base="tns:WSLogic">
+<xs:sequence>
+<xs:element name="answerId" type="xs:long"/>
+<xs:element name="questionId" type="xs:long"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSFuzzyJumpLogic">
+<xs:complexContent>
+<xs:extension base="tns:WSLogic">
+<xs:sequence>
+<xs:element name="maxValue" type="xs:string" minOccurs="0"/>
+<xs:element name="minValue" type="xs:string" minOccurs="0"/>
+<xs:element name="questionId" type="xs:long"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WSShowHideLogic">
+<xs:complexContent>
+<xs:extension base="tns:WSLogic">
+<xs:sequence>
+<xs:element name="active" type="xs:boolean"/>
+<xs:element name="answerId" type="xs:long"/>
+<xs:element name="computerFormatExpression" type="xs:string" minOccurs="0"/>
+<xs:element name="humanFormatExpression" type="xs:string" minOccurs="0"/>
+<xs:element name="operation" type="tns:WSShowHideOperation" minOccurs="0"/>
+<xs:element name="questionId" type="xs:long"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="getQuestionSettings">
+<xs:sequence>
+<xs:element name="questionId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getQuestionSettingsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:WSQuestionSettings" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="WSQuestionSettings">
+<xs:complexContent>
+<xs:extension base="ns1:WSObject">
+<xs:sequence>
+<xs:element name="displayLayout" type="xs:int"/>
+<xs:element name="hideQuestion" type="xs:boolean"/>
+<xs:element name="newPageNumber" type="xs:boolean"/>
+<xs:element name="questionId" type="xs:long"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="updateQuestion">
+<xs:sequence>
+<xs:element name="question" type="tns:WSQuestion" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateQuestionResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getSubmissionPolicy">
+<xs:sequence>
+<xs:element name="formId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getSubmissionPolicyResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:WSSubmissionPolicy" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="WSSubmissionPolicy">
+<xs:complexContent>
+<xs:extension base="ns1:WSObject">
+<xs:sequence>
+<xs:element name="backButton" type="xs:boolean"/>
+<xs:element name="duplicateAction" type="xs:int"/>
+<xs:element name="endDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="formId" type="xs:long"/>
+<xs:element name="maxRespondents" type="xs:long"/>
+<xs:element name="startDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="timeLimitToAnswer" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="moveQuestion">
+<xs:sequence>
+<xs:element name="questionId" type="xs:long"/>
+<xs:element name="offset" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="moveQuestionResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="updateAnswer">
+<xs:sequence>
+<xs:element name="answer" type="tns:WSAnswer" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateAnswerResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getQuestion">
+<xs:sequence>
+<xs:element name="questionId" type="xs:long"/>
+<xs:element name="withAnswer" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getQuestionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:WSQuestion" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getFormLogic">
+<xs:sequence>
+<xs:element name="formId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getFormLogicResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:WSFormLogic" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="WSFormLogic">
+<xs:complexContent>
+<xs:extension base="ns1:WSObject">
+<xs:sequence>
+<xs:element name="formId" type="xs:long"/>
+<xs:element name="logicList" type="tns:WSQuestionLogic" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="getFormTree">
+<xs:sequence>
+<xs:element name="formId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getFormTreeResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:WSFormTree" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="WSFormTree">
+<xs:complexContent>
+<xs:extension base="tns:WSForm">
+<xs:sequence>
+<xs:element name="questions" type="tns:WSQuestion" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="getAnswers">
+<xs:sequence>
+<xs:element name="questionId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAnswersResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:WSAnswer" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setQuestionLogic">
+<xs:sequence>
+<xs:element name="questionId" type="xs:long"/>
+<xs:element name="questionLogic" type="tns:WSQuestionLogic" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setQuestionLogicResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getAnswerPosition">
+<xs:sequence>
+<xs:element name="answerId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAnswerPositionResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteQuestion">
+<xs:sequence>
+<xs:element name="questionId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteQuestionResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="moveAnswer">
+<xs:sequence>
+<xs:element name="answerId" type="xs:long"/>
+<xs:element name="offset" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="moveAnswerResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="deleteAnswer">
+<xs:sequence>
+<xs:element name="answerId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteAnswerResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getAnswer">
+<xs:sequence>
+<xs:element name="answerId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAnswerResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:WSAnswer" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setFormDesign">
+<xs:sequence>
+<xs:element name="formDesign" type="tns:WSFormDesign" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="WSFormDesign">
+<xs:complexContent>
+<xs:extension base="ns1:WSObject">
+<xs:sequence>
+<xs:element name="footerAlignement" type="tns:WSFormAlign"/>
+<xs:element name="footerText" type="xs:string" minOccurs="0"/>
+<xs:element name="formId" type="xs:long"/>
+<xs:element name="headerText" type="xs:string" minOccurs="0"/>
+<xs:element name="progressIndicatorType" type="xs:boolean"/>
+<xs:element name="showPageNumber" type="xs:boolean"/>
+<xs:element name="thankYouPage" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="setFormDesignResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="deleteForm">
+<xs:sequence>
+<xs:element name="formId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteFormResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getForms">
+<xs:sequence>
+<xs:element name="accountId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getFormsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:WSForm" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getQuestionPosition">
+<xs:sequence>
+<xs:element name="questionId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getQuestionPositionResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setSubmissionPolicy">
+<xs:sequence>
+<xs:element name="submissionPolicy" type="tns:WSSubmissionPolicy" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setSubmissionPolicyResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="setFormNotes">
+<xs:sequence>
+<xs:element name="formNotes" type="tns:WSFormNotes" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setFormNotesResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="createCompleteForm">
+<xs:sequence>
+<xs:element name="form" type="tns:WSForm" minOccurs="0"/>
+<xs:element name="formDesign" type="tns:WSFormDesign" minOccurs="0"/>
+<xs:element name="submissionPolicy" type="tns:WSSubmissionPolicy" minOccurs="0"/>
+<xs:element name="formNotes" type="tns:WSFormNotes" minOccurs="0"/>
+<xs:element name="questionList" type="tns:WSQuestion" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createCompleteFormResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getFormPermissions">
+<xs:sequence>
+<xs:element name="formId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getFormPermissionsResponse">
+<xs:sequence>
+<xs:element name="return" type="ns2:WSFormPermission" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createCompleteQuestion">
+<xs:sequence>
+<xs:element name="question" type="tns:WSQuestion" minOccurs="0"/>
+<xs:element name="questionSettings" type="tns:WSQuestionSettings" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createCompleteQuestionResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addQuestion">
+<xs:sequence>
+<xs:element name="question" type="tns:WSQuestion" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addQuestionResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addAnswer">
+<xs:sequence>
+<xs:element name="answer" type="tns:WSAnswer" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addAnswerResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createForm">
+<xs:sequence>
+<xs:element name="form" type="tns:WSForm" minOccurs="0"/>
+<xs:element name="questionList" type="tns:WSQuestion" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createFormResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getQuestionByPosition">
+<xs:sequence>
+<xs:element name="formId" type="xs:long"/>
+<xs:element name="position" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getQuestionByPositionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:WSQuestion" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getFormDesign">
+<xs:sequence>
+<xs:element name="formId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getFormDesignResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:WSFormDesign" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setFormLogic">
+<xs:sequence>
+<xs:element name="formLogic" type="tns:WSFormLogic" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setFormLogicResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="updateForm">
+<xs:sequence>
+<xs:element name="form" type="tns:WSForm" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateFormResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="setQuestionSettings">
+<xs:sequence>
+<xs:element name="questionSetting" type="tns:WSQuestionSettings" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setQuestionSettingsResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:simpleType name="WSAnswerRequiredType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="ALLOW_TO_SKIP"/>
+<xs:enumeration value="SKIP_WITH_ALERT"/>
+<xs:enumeration value="MUST_ANSWER"/>
+<xs:enumeration value="MUST_ANSWER_CONDITIONAL"/>
+<xs:enumeration value="MUST_ANSWER_SELECTED"/>
+<xs:enumeration value="MUST_ANSWER_ALL_RATE_DIFF"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="WSAnswerSortType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="NOSORT"/>
+<xs:enumeration value="ROTARING"/>
+<xs:enumeration value="ALFABETICAL_ASC"/>
+<xs:enumeration value="ALFABETICAL_DESC"/>
+<xs:enumeration value="HASHING"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="WSAnswerRestrictionType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="ALL"/>
+<xs:enumeration value="ANY"/>
+<xs:enumeration value="DEFINED_BY_NUMBER_FIELDS"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="WSShowHideOperation">
+<xs:restriction base="xs:string">
+<xs:enumeration value="NONE"/>
+<xs:enumeration value="SHOW"/>
+<xs:enumeration value="HIDE"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="WSFormAlign">
+<xs:restriction base="xs:string">
+<xs:enumeration value="LEFT"/>
+<xs:enumeration value="HORIZONTAL_CENTER"/>
+<xs:enumeration value="RIGHT"/>
+<xs:enumeration value="NON_VISIBLE_LEFT"/>
+<xs:enumeration value="NON_VISIBLE_HORIZONTAL_CENTER"/>
+<xs:enumeration value="NON_VISIBLE_RIGHT"/>
+<xs:enumeration value="JUSTIFY"/>
+<xs:enumeration value="NON_VISIBLE_JUSTIFY"/>
+<xs:enumeration value="TOP"/>
+<xs:enumeration value="BASELINE"/>
+<xs:enumeration value="VERTICAL_CENTER"/>
+<xs:enumeration value="BOTTOM"/>
+<xs:enumeration value="NON_VISIBLE_TOP"/>
+<xs:enumeration value="NON_VISIBLE_VERTICAL_CENTER"/>
+<xs:enumeration value="NON_VISIBLE_BASELINE"/>
+<xs:enumeration value="NON_VISIBLE_BOTTOM"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

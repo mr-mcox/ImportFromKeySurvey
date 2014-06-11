@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.4-b01-. -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://user.v81.api.keysurvey.com">
+
+<xs:simpleType name="WSFormPermission">
+<xs:restriction base="xs:string">
+<xs:enumeration value="VIEW"/>
+<xs:enumeration value="EDIT"/>
+<xs:enumeration value="DELETE"/>
+<xs:enumeration value="LAUNCH"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>
