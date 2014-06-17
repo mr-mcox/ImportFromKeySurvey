@@ -17,7 +17,7 @@ use URI;
 use XlsDataWriter;
 use Spreadsheet::ParseExcel;
 use DBI;
-use DateTime;
+# use DateTime;
 use feature "switch";
 
 BEGIN {
@@ -865,29 +865,29 @@ sub log_error {
 	print { $self->{'error_log'} } localtime . " $error_string\n";
 }
 
-sub current_process_start {
-	my $self = shift;
-	$self->{'current_process_start_time'} = DateTime->now;
-}
+# sub current_process_start {
+# 	my $self = shift;
+# 	$self->{'current_process_start_time'} = DateTime->now;
+# }
 
-sub expected_finish_string {
-	my $self = shift;
-	my $percent_complete = shift;
+# sub expected_finish_string {
+# 	my $self = shift;
+# 	my $percent_complete = shift;
 	
-	unless( $percent_complete ){ return "No percent complete given to estimate time"}
+# 	unless( $percent_complete ){ return "No percent complete given to estimate time"}
 	
-	my $current_time = DateTime->now;
-	my $start_time = $self->{'current_process_start_time'} || return {"No start time set"};
-	my $elapsed_time = $current_time - $start_time;
-	my $elapsed_seconds = $elapsed_time->seconds + 60*($elapsed_time->minutes + 60 *( $elapsed_time->hours + ( 24* $elapsed_time->days )));
-	my $estimated_total_seconds = $elapsed_seconds / $percent_complete;
+# 	my $current_time = DateTime->now;
+# 	my $start_time = $self->{'current_process_start_time'} || return {"No start time set"};
+# 	my $elapsed_time = $current_time - $start_time;
+# 	my $elapsed_seconds = $elapsed_time->seconds + 60*($elapsed_time->minutes + 60 *( $elapsed_time->hours + ( 24* $elapsed_time->days )));
+# 	my $estimated_total_seconds = $elapsed_seconds / $percent_complete;
 	
-	my $estimated_total_time = DateTime::Duration->new( 'seconds' => $estimated_total_seconds );
-	my $estimated_finish_time = $start_time + $estimated_total_time;
-	$estimated_finish_time->set_time_zone( 'America/Chicago' );
+# 	my $estimated_total_time = DateTime::Duration->new( 'seconds' => $estimated_total_seconds );
+# 	my $estimated_finish_time = $start_time + $estimated_total_time;
+# 	$estimated_finish_time->set_time_zone( 'America/Chicago' );
 	
-	return " Est. finish: " . $estimated_finish_time->month . "/" . $estimated_finish_time->day . " " . $estimated_finish_time->hour . ":" . $estimated_finish_time->minute . " (" . sprintf( "%.2f", $estimated_total_seconds / 3600) . " hrs)";
-}
+# 	return " Est. finish: " . $estimated_finish_time->month . "/" . $estimated_finish_time->day . " " . $estimated_finish_time->hour . ":" . $estimated_finish_time->minute . " (" . sprintf( "%.2f", $estimated_total_seconds / 3600) . " hrs)";
+# }
 
 sub progress_bar {
 	my $self = shift;
@@ -896,7 +896,8 @@ sub progress_bar {
     my $num_width = length $total;
     sprintf ("|%-${width}s| Executed %${num_width}s actions of %s (%.2f%%) ", 
         $char x (($width-1)*$got/$total). '>', 
-        $got, $total, 100*$got/+$total) . $self->expected_finish_string($got/$total) . "\r";
+        # $got, $total, 100*$got/+$total) . $self->expected_finish_string($got/$total) . "\r";
+        $got, $total, 100*$got/+$total) . "\r";
 }
 
 1;
