@@ -383,7 +383,7 @@ sub get_results {
 	select STDOUT;
 	print "\n";
 	$|=1;
-	$self->current_process_start;
+	# $self->current_process_start;
 	
 	for my $current_respondent ( @respondents ){
 	    if( $respondents_retrieved > 0 ){
@@ -718,7 +718,7 @@ sub export_results_to_database {
 	carp "Exporting results to database";
 	my $total_respondents = $#{ $self->{'respondents'} } + 1;
 	my $number_of_respondents_processed;
-	$self->current_process_start;
+	# $self->current_process_start;
 	
 	$|=1;
 	
@@ -862,7 +862,7 @@ sub log_error {
 	my $self = shift;
 	my $error_string = shift;
 	
-	print { $self->{'error_log'} } localtime . " $error_string\n";
+	print { $self->{'error_log'} } localtime() . " $error_string\n";
 }
 
 # sub current_process_start {
