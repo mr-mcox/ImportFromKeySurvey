@@ -404,65 +404,69 @@ sub get_results {
 			    next;
 			}
 			unless( ref  XML::Simple->new()->XMLin( $result )->{'S:Body'}->{'ns2:getResponsesResponse'}->{'return'} eq 'ARRAY'){
-				croak "$trace\ngetResponses resulted in unexpected output:\n" . Dump(XML::Simple->new()->XMLin( $result ));
+				;
 			}
+			my @questions;
 			if( ref XML::Simple->new()->XMLin( $result )->{'S:Body'}->{'ns2:getResponsesResponse'}->{'return'} eq 'ARRAY' ){
-				my @questions = @{ XML::Simple->new()->XMLin( $result )->{'S:Body'}->{'ns2:getResponsesResponse'}->{'return'} };
+				@questions = @{ XML::Simple->new()->XMLin( $result )->{'S:Body'}->{'ns2:getResponsesResponse'}->{'return'} };
+			}elsif(ref XML::Simple->new()->XMLin( $result )->{'S:Body'}->{'ns2:getResponsesResponse'}->{'return'} eq 'HASH'){
+				@questions = (%{ XML::Simple->new()->XMLin( $result )->{'S:Body'}->{'ns2:getResponsesResponse'}->{'return'} });
+			}else{
+				croak "$trace\ngetResponses resulted in unexpected output:\n" . Dump(XML::Simple->new()->XMLin( $result ))
+			}
 
-				for my $current_question ( @questions ){
-					my $question_id = $current_question->{'questionId'};
+			for my $current_question ( @questions ){
+				my $question_id = $current_question->{'questionId'};
 
-					unless( exists $survey_question{ $question_id } ){
-						carp "Respondent $current_respondent->{'code'} has questionId of $question_id which does not exist in design";
-						next;
+				unless( exists $survey_question{ $question_id } ){
+					carp "Respondent $current_respondent->{'code'} has questionId of $question_id which does not exist in design";
+					next;
+				}
+
+				given( $survey_question{ $question_id }->{'xsi:type'} ){
+					when (['ns2:WSSectionHeaderQuestion','ns2:WSMultiLineQuestion','ns2:WSDropdownQuestion']){
+						$response_for_respondent{ $current_code }->{ $question_id }->{'main'} = $self->retrieve_values_for_answer( $question_id, $current_question->{'answerResponses'} );
 					}
-
-					given( $survey_question{ $question_id }->{'xsi:type'} ){
-						when (['ns2:WSSectionHeaderQuestion','ns2:WSMultiLineQuestion','ns2:WSDropdownQuestion']){
+					when (['ns2:WSSingleLineQuestion','ns2:WSRankGridQuestion','ns2:WSCheckAllThatApplyQuestion','ns2:WSListBoxQuestion']){
+						my @responses;
+						if( ref $current_question->{'answerResponses'} eq 'ARRAY' ){
+							@responses = @{ $current_question->{'answerResponses'} };
+						}else{
+							@responses = ( $current_question->{'answerResponses'} );
+						}
+						for my $current_response ( @responses ){
+							$response_for_respondent{ $current_code }->{ $question_id }->{'sub_question'}->{ $current_response->{'answerId'} } = $self->retrieve_values_for_answer( $question_id, $current_response );
+						}
+					}
+					when([ 'ns2:WSPickOneOrOtherQuestion' ]){
+						my $current_response = $current_question->{'answerResponses'};
+						if( $current_response->{'xsi:type'} eq "ns2:WSAnswerPickResponse" ){
+							$response_for_respondent{ $current_code }->{ $question_id }->{'main'} = $self->retrieve_values_for_answer( $question_id, $current_response );
+						}else{
+							$response_for_respondent{ $current_code }->{ $question_id }->{'sub_question'}->{ $current_response->{'answerId'} } = $self->retrieve_values_for_answer( $question_id, $current_response );
+						}
+					}
+					when (['ns2:WSPickOneWithCommentQuestion']) {
+						if( ref $current_question->{'answerResponses'} eq 'HASH' ){
 							$response_for_respondent{ $current_code }->{ $question_id }->{'main'} = $self->retrieve_values_for_answer( $question_id, $current_question->{'answerResponses'} );
 						}
-						when (['ns2:WSSingleLineQuestion','ns2:WSRankGridQuestion','ns2:WSCheckAllThatApplyQuestion','ns2:WSListBoxQuestion']){
-							my @responses;
-							if( ref $current_question->{'answerResponses'} eq 'ARRAY' ){
-								@responses = @{ $current_question->{'answerResponses'} };
-							}else{
-								@responses = ( $current_question->{'answerResponses'} );
-							}
-							for my $current_response ( @responses ){
-								$response_for_respondent{ $current_code }->{ $question_id }->{'sub_question'}->{ $current_response->{'answerId'} } = $self->retrieve_values_for_answer( $question_id, $current_response );
-							}
-						}
-						when([ 'ns2:WSPickOneOrOtherQuestion' ]){
-							my $current_response = $current_question->{'answerResponses'};
-							if( $current_response->{'xsi:type'} eq "ns2:WSAnswerPickResponse" ){
-								$response_for_respondent{ $current_code }->{ $question_id }->{'main'} = $self->retrieve_values_for_answer( $question_id, $current_response );
-							}else{
-								$response_for_respondent{ $current_code }->{ $question_id }->{'sub_question'}->{ $current_response->{'answerId'} } = $self->retrieve_values_for_answer( $question_id, $current_response );
-							}
-						}
-						when (['ns2:WSPickOneWithCommentQuestion']) {
-							if( ref $current_question->{'answerResponses'} eq 'HASH' ){
-								$response_for_respondent{ $current_code }->{ $question_id }->{'main'} = $self->retrieve_values_for_answer( $question_id, $current_question->{'answerResponses'} );
-							}
-							if( ref $current_question->{'answerResponses'} eq 'ARRAY' ){
-								for my $current_response ( @{ $current_question->{'answerResponses'} } ){
-									if( $current_response->{'xsi:type'} eq "ns2:WSAnswerPickResponse" ){
-										$response_for_respondent{ $current_code }->{ $question_id }->{'main'} = $self->retrieve_values_for_answer( $question_id, $current_response );
-									}else{
-										$response_for_respondent{ $current_code }->{ $question_id }->{'sub_question'}->{'comment'} = $self->retrieve_values_for_answer( $question_id, $current_response );
-									}
+						if( ref $current_question->{'answerResponses'} eq 'ARRAY' ){
+							for my $current_response ( @{ $current_question->{'answerResponses'} } ){
+								if( $current_response->{'xsi:type'} eq "ns2:WSAnswerPickResponse" ){
+									$response_for_respondent{ $current_code }->{ $question_id }->{'main'} = $self->retrieve_values_for_answer( $question_id, $current_response );
+								}else{
+									$response_for_respondent{ $current_code }->{ $question_id }->{'sub_question'}->{'comment'} = $self->retrieve_values_for_answer( $question_id, $current_response );
 								}
 							}
 						}
-						when (['ns2:WSMatrixQuestion']) {
-            			    #Needs development
-            		    }
-						default { croak "Response retreival method not specified for $question_id with type $survey_question{ $question_id }->{'xsi:type'}" }
 					}
+					when (['ns2:WSMatrixQuestion']) {
+        			    #Needs development
+        		    }
+					default { croak "Response retreival method not specified for $question_id with type $survey_question{ $question_id }->{'xsi:type'}" }
 				}
-			}else{
-				$self->log_error("Getting responses failed for " . $current_respondent->{'respondentId'} . ". Dump of response is:\n" . Dump( XML::Simple->new()->XMLin( $result ) ) );
 			}
+			
 		}
 		print "Retrieving responses: " . $self->progress_bar( ++$respondents_retrieved, $#respondents + 1, 25, "=");
 	}
