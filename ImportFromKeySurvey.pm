@@ -71,7 +71,7 @@ sub new {
 	foreach my $wsdl_name ( @wsdls ){
 		my $wsdl = XML::Compile::WSDL11->new( $working_library_path .'/WSDL/' . $wsdl_name . '.wsdl');
 		my $uri = URI->new($wsdl->endPoint);
-		$uri->userinfo('TPSDNationalSurveys:tfatech');
+		$uri->userinfo('TPSDNationalSurveys:#tfatech2014');
 		my $http = XML::Compile::Transport::SOAPHTTP->new(
 			address => $uri->as_string
 		);
