@@ -416,6 +416,10 @@ sub get_results {
 			}
 
 			for my $current_question ( @questions ){
+				unless( ref $current_question eq 'HASH'){
+					carp "Found question with the value $current_question that is not a HASH reference";
+					next;
+				}
 				my $question_id = $current_question->{'questionId'};
 
 				unless( exists $survey_question{ $question_id } ){
