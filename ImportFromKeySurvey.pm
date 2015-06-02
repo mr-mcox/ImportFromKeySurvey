@@ -439,6 +439,10 @@ sub get_results {
 						}
 					}
 					when([ 'ns2:WSPickOneOrOtherQuestion' ]){
+						if( ref $current_question->{'answerResponses'} ne 'HASH' ){
+							carp "Skipping response for question $question_id because response is not a HASH";
+							next;
+						}
 						my $current_response = $current_question->{'answerResponses'};
 						if( $current_response->{'xsi:type'} eq "ns2:WSAnswerPickResponse" ){
 							$response_for_respondent{ $current_code }->{ $question_id }->{'main'} = $self->retrieve_values_for_answer( $question_id, $current_response );
